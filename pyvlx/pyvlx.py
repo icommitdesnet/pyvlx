@@ -53,6 +53,9 @@ class PyVLX:
         await self.klf200.get_state()
         await self.klf200.set_utc()
         await self.klf200.get_network_setup()
+        await self.klf200.get_activation_log_header()
+        await self.klf200.get_activation_log_line()
+        await self.klf200.get_activation_log_lines()
         await house_status_monitor_enable(pyvlx=self)
 
     async def reboot_gateway(self):
