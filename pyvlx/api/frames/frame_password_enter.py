@@ -3,7 +3,7 @@ from enum import Enum
 
 from pyvlx.const import Command
 from pyvlx.exception import PyVLXException
-from pyvlx.string_helper import bytes_to_string, string_to_bytes
+from pyvlx.helpers import bytes_to_string, string_to_bytes
 
 from .frame import FrameBase
 
