@@ -19,24 +19,30 @@ def bytes_to_string(raw):
         ret += bytes([byte])
     return ret.decode("utf-8")
 
+
 def bytes_from_statusflags(flaglist, length):
-    """Returns binary Coded list of flags
+    """Return binary Coded list of flags.
+
     Least significant bit in first byte holds information
-    of the actuator node with index 0"""
+    of the actuator node with index 0
+    """
     payload = b''
     for targetbyte in range(0, length):
         i = 0
         for targetbit in range(0, 8):
             if targetbyte*8 + targetbit in flaglist:
-                i |= (1<<targetbit)
+                i |= (1 << targetbit)
         payload = payload + i.to_bytes(1, "big")
     return payload
 
+
 def statusflags_from_bytes(payload):
-    """Extracts Status Flags form binary Coded list
+    """Extract Status Flags form binary Coded list.
+
     Least significant bit in first byte holds information
-    of the actuator node with index 0"""
-    #XXX: bitbanging to be improved
+    of the actuator node with index 0
+    """
+    # XXX: bitbanging to be improved
 
     flaglist = []
     for index, item in enumerate(payload):

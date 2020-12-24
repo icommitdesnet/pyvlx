@@ -1,8 +1,8 @@
-"""Unit tests string_helper module."""
+"""Unit tests helpers module."""
 import unittest
 
 from pyvlx.exception import PyVLXException
-from pyvlx.string_helper import bytes_to_string, string_to_bytes
+from pyvlx.helpers import bytes_to_string, string_to_bytes, bytes_from_statusflags, statusflags_from_bytes
 
 
 class TestString(unittest.TestCase):
@@ -41,4 +41,16 @@ class TestString(unittest.TestCase):
         """Test decoding a string with special characters."""
         self.assertEqual(
             bytes_to_string(b"Fenster B\xc3\xbcro\x00\x00\x00"), "Fenster Büro"
+        )
+
+    def test_statusflags_from_bytes(self):
+        """Test decoding statusflags to list."""
+        self.assertEqual(
+            statusflags_from_bytes(0x0211.to_bytes(2, byteorder='big')), [1, 8, 12]
+        )
+
+    def bytes_from_statusflags(self):
+        """Test decoding statusflags to list."""
+        self.assertEqual(
+            bytes_from_statusflags([1, 8, 12], 2), 0x0211.to_bytes(2, byteorder='big')
         )
