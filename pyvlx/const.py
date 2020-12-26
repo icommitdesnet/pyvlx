@@ -654,3 +654,19 @@ class RunStatus(Enum):
     EXECUTION_COMPLETED = 0  # Execution is completed with no errors.
     EXECUTION_FAILED = 1     # Execution has failed. (Get specifics in the following error code)
     EXECUTION_ACTIVE = 2     # Execution is still active.
+
+
+class GetGroupInformationStatus(Enum):
+    """Enum class for get (all) group(s) information status."""
+
+    OK = 0  # OK – Request accepted
+    FAILED = 1  # Error – Request failed
+    NO_GROUPS = 2  # Error – No groups available
+
+
+class AlterGroupStatus(Enum):
+    """Enum class for new product group status."""
+
+    OK = 0  # OK – Request accepted
+    FAILED = 1  # Error – Request failed
+    INVALID = 2  # Error – Invalid parameter

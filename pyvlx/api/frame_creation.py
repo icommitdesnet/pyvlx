@@ -32,7 +32,14 @@ from .frames import (
     FrameSetUTCConfirmation, FrameSetUTCRequest, extract_from_frame,
     FrameLeaveLearnStateConfirmation, FrameLeaveLearnStateRequest,
     FrameGetLocalTimeConfirmation, FrameGetLocalTimeRequest,
-    FrameGatewayFactoryDefaultConfirmation, FrameGatewayFactoryDefaultRequest)
+    FrameGatewayFactoryDefaultConfirmation, FrameGatewayFactoryDefaultRequest,
+    FrameGetAllGroupsInformationRequest, FrameGetAllGroupsInformationConfirmation,
+    FrameGetAllGroupsInformationNotification, FrameGetAllGroupsInformationFinishedNotification,
+    FrameGetGroupInformationRequest, FrameGetGroupInformationConfirmation,
+    FrameGetGroupInformationNotification,
+    FrameDeleteGroupRequest, FrameDeleteGroupConfirmation, FrameDeleteGroupNotfication,
+    FrameNewGroupRequest, FrameNewGroupConfirmation,
+    FrameSetGroupInformationRequest, FrameSetGroupInformationConfirmation)
 
 
 def frame_from_raw(raw):
@@ -180,4 +187,34 @@ def create_frame(command):
     if command == command.GW_LEAVE_LEARN_STATE_REQ:
         return FrameLeaveLearnStateRequest()
 
+    if command == command.GW_GET_ALL_GROUPS_INFORMATION_REQ:
+        return FrameGetAllGroupsInformationRequest()
+    if command == command.GW_GET_ALL_GROUPS_INFORMATION_CFM:
+        return FrameGetAllGroupsInformationConfirmation()
+    if command == command.GW_GET_ALL_GROUPS_INFORMATION_NTF:
+        return FrameGetAllGroupsInformationNotification()
+    if command == command.GW_GET_ALL_GROUPS_INFORMATION_FINISHED_NTF:
+        return FrameGetAllGroupsInformationFinishedNotification()
+
+    if command == command.GW_GET_GROUP_INFORMATION_REQ:
+        return FrameGetGroupInformationRequest()
+    if command == command.GW_GET_GROUP_INFORMATION_CFM:
+        return FrameGetGroupInformationConfirmation()
+    if command == command.GW_GET_GROUP_INFORMATION_NTF:
+        return FrameGetGroupInformationNotification()
+
+    if command == command.GW_DELETE_GROUP_REQ:
+        return FrameDeleteGroupRequest()
+    if command == command.GW_DELETE_GROUP_CFM:
+        return FrameDeleteGroupConfirmation()
+    if command == command.GW_GROUP_DELETED_NTF:
+        return FrameDeleteGroupNotfication()
+    if command == command.GW_NEW_GROUP_REQ:
+        return FrameNewGroupRequest()
+    if command == command.GW_NEW_GROUP_CFM:
+        return FrameNewGroupConfirmation()
+    if command == command.GW_SET_GROUP_INFORMATION_REQ:
+        return FrameSetGroupInformationRequest()
+    if command == command.GW_SET_GROUP_INFORMATION_CFM:
+        return FrameSetGroupInformationConfirmation()
     return None

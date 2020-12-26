@@ -46,11 +46,11 @@ class TestString(unittest.TestCase):
     def test_statusflags_from_bytes(self):
         """Test decoding statusflags to list."""
         self.assertEqual(
-            statusflags_from_bytes(0x0211.to_bytes(2, byteorder='big')), [1, 8, 12]
+            statusflags_from_bytes(0x0211.to_bytes(2, byteorder="big")), [1, 8, 12]
         )
 
     def bytes_from_statusflags(self):
         """Test decoding statusflags to list."""
         self.assertEqual(
-            bytes_from_statusflags([1, 8, 12], 2), 0x0211.to_bytes(2, byteorder='big')
+            bytes_from_statusflags([1, 8, 12], 2), 0x0211.to_bytes(2, byteorder="big")
         )

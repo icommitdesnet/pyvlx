@@ -67,3 +67,15 @@ from .frame_facory_default import (
 from .frame_password_change import (
     FramePasswordChangeRequest, FramePasswordChangeConfirmation,
     FramePasswordChangeNotification, PasswordChangeConfirmationStatus)
+from .frame_group_get_all_information import (
+    FrameGetAllGroupsInformationRequest, FrameGetAllGroupsInformationConfirmation,
+    FrameGetAllGroupsInformationNotification, FrameGetAllGroupsInformationFinishedNotification)
+from .frame_group_get_information import (
+    FrameGetGroupInformationRequest, FrameGetGroupInformationConfirmation,
+    FrameGetGroupInformationNotification)
+from .frame_group_new import (
+    FrameNewGroupRequest, FrameNewGroupConfirmation)
+from .frame_group_delete import (
+    FrameDeleteGroupRequest, FrameDeleteGroupConfirmation, FrameDeleteGroupNotfication)
+from .frame_group_set_information import (
+    FrameSetGroupInformationRequest, FrameSetGroupInformationConfirmation)
